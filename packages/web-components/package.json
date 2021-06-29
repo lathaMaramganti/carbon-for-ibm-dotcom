@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.5.0",
+  "version": "1.6.0-rc.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -55,7 +55,7 @@
     "ci-check": "yarn wca && yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",
     "clean": "gulp clean",
     "clean:dist": "rimraf dist",
-    "doctoc": "doctoc --title '## Table of Contents' docs && doctoc --title '## Table of Contents' README.md",
+    "doctoc": "doctoc --title '## Table of contents' docs && doctoc --title '## Table of contents' README.md",
     "format": "prettier --write \"**/*.{css,js,ts,md,scss}\"",
     "format:diff": "prettier --check \"**/*.{css,js,ts,md,scss}\"",
     "format:staged": "prettier --write",
@@ -72,19 +72,20 @@
     "test:e2e:build": "node ./tests/e2e/build/build-examples.js",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest --exact",
+    "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.20.0",
-    "@carbon/ibmdotcom-styles": "1.20.0",
-    "@carbon/ibmdotcom-utilities": "1.20.0",
+    "@carbon/ibmdotcom-services": "1.21.0-rc.0",
+    "@carbon/ibmdotcom-styles": "1.21.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.21.0-rc.0",
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "carbon-components": "10.36.0",
-    "carbon-web-components": "1.13.3",
+    "carbon-components": "10.37.0",
+    "carbon-web-components": "1.14.1",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
@@ -92,7 +93,7 @@
     "window-or-global": "^1.0.0"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.31.0",
+    "@carbon/icons-react": "10.33.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -115,13 +116,14 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
-    "@carbon/ibmdotcom-services-store": "1.20.0",
+    "@carbon/ibmdotcom-services-store": "1.21.0-rc.0",
     "@carbon/icon-helpers": "10.18.0",
     "@carbon/icons": "10.33.0",
     "@carbon/type": "10.29.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/storybook": "^3.3.0",
+    "@storybook/addon-a11y": "^5.3.0",
     "@storybook/addon-actions": "^5.3.0",
     "@storybook/addon-docs": "^5.3.0",
     "@storybook/addon-knobs": "^5.3.0",
@@ -221,6 +223,7 @@
     "rollup-plugin-analyzer": "^3.1.0",
     "rollup-plugin-babel": "^4.3.0",
     "rollup-plugin-commonjs": "^9.3.0",
+    "rollup-plugin-inject-process-env": "^1.3.1",
     "rollup-plugin-multi-input": "^1.3.1",
     "rollup-plugin-node-resolve": "^4.2.0",
     "rollup-plugin-replace": "^2.2.0",
@@ -242,8 +245,8 @@
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
-    "carbon-components": "10.34.0",
-    "carbon-web-components": "1.13.3",
+    "carbon-components": "10.37.0",
+    "carbon-web-components": "1.14.1",
     "lit-element": "^2.3.0",
     "lit-html": "^1.2.0",
     "typescript": "~3.9.0"

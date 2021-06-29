@@ -1,6 +1,8 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
 
 # Masthead
 
@@ -23,23 +25,9 @@ import plex from '../../../../docs/plex.md';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['masthead'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/masthead.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/masthead.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/masthead.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/masthead.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -90,6 +78,12 @@ To set a custom endpoint for the translation service to fetch from, set either t
 ### `<dds-masthead-container>`/`<dds-masthead-composite>`
 
 <Props of="dds-masthead-composite" />
+
+For Cloud-specific version of masthead-container, `<dds-cloud-masthead-container>`, we support two user authentication methods, via cookie or api. To select between the two, provide the `auth-method` prop with a value of either 'cookie' or 'api'.
+
+```html
+<dds-cloud-masthead-container auth-method="cookie"></dds-cloud-masthead-container>
+```
 
 ## Stable selectors
 
